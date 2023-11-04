@@ -1,0 +1,3 @@
+Figures for LatinR presentation slides
+
+[[file:figure-roll.R]] explains rolling join.
