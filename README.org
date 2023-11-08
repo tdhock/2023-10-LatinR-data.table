@@ -1,3 +1,8 @@
 Figures for LatinR presentation slides
 
 [[file:figure-roll.R]] explains rolling join.
+
+[[file:figures-iris-dt/]] contains source files for melt conceptual
+figures, adapted from [[https://github.com/tdhock/nc-article/blob/master/figure-1-iris.svg][nc article]].
+
+[[file:figure-melt-exercises.R]] contains code for melt exercise figures.

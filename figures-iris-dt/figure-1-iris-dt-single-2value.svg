@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="199.76686mm"
+   height="108.72854mm"
+   viewBox="0 0 199.76686 108.72854"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="figure-1-iris-dt-single-2value.svg"
+   inkscape:export-filename="C:\Users\th798\projects\nc-article\figure-1-iris-dt-single-2value.png"
+   inkscape:export-xdpi="393.73999"
+   inkscape:export-ydpi="393.73999">
+  <defs
+     id="defs2">
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker2211"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path2209"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker1658"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstart">
+      <path
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path1656"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker1622"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path1620"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker1562"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path1560"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.0331964"
+     inkscape:cx="159.91701"
+     inkscape:cy="106.65205"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:snap-text-baseline="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid150" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-5.788445,5.1522327)">
+    <rect
+       style="opacity:1;fill:#cccccc;stroke:#0000ff;stroke-width:0.41441217;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2341-3"
+       width="18.760756"
+       height="6.9768829"
+       x="138.01398"
+       y="50.692215" />
+    <rect
+       style="opacity:1;fill:#cccccc;stroke:#000000;stroke-width:0.46846879;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2320-9-8"
+       width="14.7514"
+       height="6.4945312"
+       x="128.90114"
+       y="-4.9179983" />
+    <rect
+       style="opacity:1;fill:#cccccc;stroke:#0000ff;stroke-width:0.42795935;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2341"
+       width="20.126501"
+       height="6.9355912"
+       x="154.63412"
+       y="50.726734" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot815"
+       style="font-style:normal;font-weight:normal;font-size:18px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="matrix(0.26458333,0,0,0.26458333,-4.2763124,-3.2072343)"><flowRegion
+         id="flowRegion817"><rect
+           id="rect819"
+           width="541.44177"
+           height="205.06097"
+           x="27.274118"
+           y="38.626003" /></flowRegion><flowPara
+         id="flowPara821" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.76249981px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="58.532024"
+       y="15.297917"
+       id="text825"><tspan
+         sodipodi:role="line"
+         id="tspan823"
+         x="58.532024"
+         y="19.511614"
+         style="stroke-width:0.26458332px" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.76249981px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="2.6726952"
+       y="9.952527"
+       id="text853"><tspan
+         sodipodi:role="line"
+         id="tspan851"
+         x="2.6726952"
+         y="14.166224"
+         style="stroke-width:0.26458332px" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.76249981px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="61.854607"
+       y="55.567307"
+       id="text881"><tspan
+         sodipodi:role="line"
+         x="61.854607"
+         y="55.567307"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;fill:#0000ff;stroke-width:0.26458332px"
+         id="tspan997">   value    Species flower  part    dim</tspan><tspan
+         sodipodi:role="line"
+         x="61.854607"
+         y="61.557968"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;fill:#0000ff;stroke-width:0.26458332px"
+         id="tspan115">1:   5.1     setosa      1 Sepal Length</tspan><tspan
+         sodipodi:role="line"
+         x="61.854607"
+         y="67.54863"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;fill:#0000ff;stroke-width:0.26458332px"
+         id="tspan999">2:   3.5     setosa      1 Sepal  Width</tspan><tspan
+         sodipodi:role="line"
+         x="61.854607"
+         y="73.539291"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;fill:#0000ff;stroke-width:0.26458332px"
+         id="tspan1002">3:   1.4     setosa      1 Petal Length</tspan><tspan
+         sodipodi:role="line"
+         x="61.854607"
+         y="79.529953"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;fill:#0000ff;stroke-width:0.26458332px"
+         id="tspan1004">4:   0.2     setosa      1 Petal  Width</tspan><tspan
+         sodipodi:role="line"
+         x="61.854607"
+         y="85.520607"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;fill:#0000ff;stroke-width:0.26458332px"
+         id="tspan1006">5:   7.0 versicolor     51 Sepal Length</tspan><tspan
+         sodipodi:role="line"
+         x="61.854607"
+         y="91.511269"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;fill:#0000ff;stroke-width:0.26458332px"
+         id="tspan1008">6:   3.2 versicolor     51 Sepal  Width</tspan><tspan
+         sodipodi:role="line"
+         x="61.854607"
+         y="97.50193"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;fill:#0000ff;stroke-width:0.26458332px"
+         id="tspan1010">7:   4.7 versicolor     51 Petal Length</tspan><tspan
+         sodipodi:role="line"
+         x="61.854607"
+         y="103.49259"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;fill:#0000ff;stroke-width:0.26458332px"
+         id="tspan1012">8:   1.4 versicolor     51 Petal  Width</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.76249981px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="5.788445"
+       y="8.3796444"
+       id="text881-0"><tspan
+         sodipodi:role="line"
+         x="5.788445"
+         y="8.3796444"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;stroke-width:0.26458332px"
+         id="tspan1014">   Sepal.Length Sepal.Width Petal.Length Petal.Width    Species flower</tspan><tspan
+         sodipodi:role="line"
+         x="5.788445"
+         y="14.370305"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;stroke-width:0.26458332px"
+         id="tspan950">1:          5.1         3.5          1.4         0.2     setosa      1</tspan><tspan
+         sodipodi:role="line"
+         x="5.788445"
+         y="20.360966"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;stroke-width:0.26458332px"
+         id="tspan952">2:          7.0         3.2          4.7         1.4 versicolor     51</tspan><tspan
+         sodipodi:role="line"
+         x="5.788445"
+         y="26.351627"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;stroke-width:0.26458332px"
+         id="tspan954" /></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1180"
+       style="font-style:normal;font-weight:normal;font-size:66.66666412px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="scale(0.26458333)"><flowRegion
+         id="flowRegion1182"
+         style="font-size:66.66666412px"><rect
+           id="rect1184"
+           width="63.63961"
+           height="63.63961"
+           x="-58.588848"
+           y="22.463564"
+           style="font-size:66.66666412px" /></flowRegion><flowPara
+         id="flowPara1186" /></flowRoot>    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.38681483;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker2211)"
+       d="m 193.60027,35.572448 v 7.14059 H 178.3659"
+       id="path2201"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.76249981px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="14.640726"
+       y="59.054913"
+       id="text2263"><tspan
+         sodipodi:role="line"
+         id="tspan2261"
+         x="14.640726"
+         y="59.054913"
+         style="fill:#0000ff;stroke-width:0.26458332px">Convert</tspan><tspan
+         sodipodi:role="line"
+         x="14.640726"
+         y="65.008034"
+         style="fill:#0000ff;stroke-width:0.26458332px"
+         id="tspan134">4 input measure</tspan><tspan
+         sodipodi:role="line"
+         x="14.640726"
+         y="70.961159"
+         style="fill:#0000ff;stroke-width:0.26458332px"
+         id="tspan2265">columns to</tspan><tspan
+         sodipodi:role="line"
+         x="14.640726"
+         y="76.914284"
+         style="fill:#0000ff;stroke-width:0.26458332px"
+         id="tspan965">1 output value </tspan><tspan
+         sodipodi:role="line"
+         x="14.640726"
+         y="82.867409"
+         style="font-weight:normal;fill:#0000ff;stroke-width:0.26458332px"
+         id="tspan3898">column </tspan></text>
+    <rect
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:0.51800001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2320"
+       width="37.614998"
+       height="7.7549224"
+       x="12.475658"
+       y="2.8624594" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.76249981px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="24.401201"
+       y="31.681328"
+       id="text2504"><tspan
+         sodipodi:role="line"
+         id="tspan2502"
+         x="24.401201"
+         y="31.681328"
+         style="font-size:9.87777805px;stroke-width:0.26458332px">Wide input with 4 measure columns</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.76249981px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="9.2012129"
+       y="46.398499"
+       id="text2504-1"
+       inkscape:transform-center-x="5.1216465"
+       inkscape:transform-center-y="4.0973172"><tspan
+         sodipodi:role="line"
+         x="9.2012129"
+         y="46.398499"
+         style="font-size:9.87777805px;line-height:96.70000672%;fill:#0000ff;stroke-width:0.26458332px"
+         id="tspan119">Long output with 1 value column</tspan></text>
+    <rect
+       style="opacity:1;fill:none;stroke:#0000ff;stroke-width:0.59884048;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2492-9"
+       width="17.38913"
+       height="6.9013495"
+       x="68.656487"
+       y="50.723812" />
+    <rect
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:0.51800001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2320-6"
+       width="33.934124"
+       height="7.7801213"
+       x="122.06316"
+       y="2.8498602" />
+    <rect
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:0.51800001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2320-4"
+       width="34.395866"
+       height="7.7549229"
+       x="50.109055"
+       y="2.8624594" />
+    <rect
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:0.51800001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2320-1"
+       width="37.614998"
+       height="7.7549229"
+       x="84.504921"
+       y="2.8624594" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.76249981px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="18.323818"
+       y="-0.30627117"
+       id="text881-0-2"><tspan
+         sodipodi:role="line"
+         x="18.323818"
+         y="-0.30627117"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier;stroke-width:0.26458332px"
+         id="tspan954-0"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans"
+   id="tspan982">Column type legend:</tspan> Name <tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans"
+   id="tspan985">= measure/value,</tspan> Name <tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans"
+   id="tspan989">= variable,</tspan> Name <tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans"
+   id="tspan987">= id.</tspan></tspan></text>
+    <rect
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:0.46846879;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2320-9"
+       width="14.7514"
+       height="6.4945307"
+       x="69.348412"
+       y="-4.9179983" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.76249981px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="178.04762"
+       y="63.065899"
+       id="text2263-1"><tspan
+         sodipodi:role="line"
+         x="178.04762"
+         y="63.065899"
+         style="font-weight:bold;fill:#0000ff;stroke-width:0.26458332px"
+         id="tspan3898-6">and 2</tspan><tspan
+         sodipodi:role="line"
+         x="178.04762"
+         y="69.01902"
+         style="font-weight:bold;fill:#0000ff;stroke-width:0.26458332px"
+         id="tspan3952">output</tspan><tspan
+         sodipodi:role="line"
+         x="178.04762"
+         y="74.972145"
+         style="font-weight:bold;fill:#0000ff;stroke-width:0.26458332px"
+         id="tspan3954">variable</tspan><tspan
+         sodipodi:role="line"
+         x="178.04762"
+         y="80.92527"
+         style="font-weight:bold;fill:#0000ff;stroke-width:0.26458332px"
+         id="tspan3956">columns</tspan></text>
+  </g>
+</svg>
