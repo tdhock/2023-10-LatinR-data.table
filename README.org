@@ -1,4 +1,4 @@
-Figures for LatinR presentation slides
+Source files for LatinR data.table tutorial slides
 
 ** English
 
