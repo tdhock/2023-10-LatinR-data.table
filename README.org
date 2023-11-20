@@ -13,6 +13,13 @@ figures, adapted from [[https://github.com/tdhock/nc-article/blob/master/figure-
 
 [[file:figure-melt-exercises.R]] contains code for melt exercise figures.
 
-** Espanol
+** Español
+Fuentes código y gráficos:
+[[file: latindatatransforme-vspanish-.pdf]] Presentación en Español adaptación presentación de Toby Dylan Hocking en LatinR. 
+[[file:figure-melt-exercises_vm.R]] contiene código para el ejercicio gráfico de melt con datos::flores. 
+files:figure1...figures-iris-dt : contiene las imágenes para adaptar la explicación conceptual para melt proveniente de
+ [[https://github.com/tdhock/nc-article/blob/master/figure-1-iris.svg][nc article]].
 
-TODO Mara please add links
+
+
+
