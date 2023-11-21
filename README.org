@@ -9,7 +9,7 @@ Source code for figures:
 [[file:figure-roll.R]] explains rolling join.
 
 [[file:figures-iris-dt/]] contains source files for melt conceptual
-figures, adapted from [[https://github.com/tdhock/nc-article/blob/master/figure-1-iris.svg][nc article]].
+figures, adapted from [[https://github.com/tdhock/nc-article/blob/master/figure-1-iris.svg][nc article]]. SVG files use Courier and Sans fonts.
 
 [[file:figure-melt-exercises.R]] contains code for melt exercise figures.
 
