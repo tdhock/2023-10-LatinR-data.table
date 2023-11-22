@@ -18,11 +18,16 @@ Fuentes código y gráficos:
 
 [[file:latindatatransforme-vspanish-.pdf]] Presentación en Español adaptación presentación de Toby Dylan Hocking en LatinR
 
+[[file:latinrdatatransforme_spanish.qmd]] contiene el código en reveal js (.qmd) de la presentación. Se complementa con las imagenes de la carpeta images.
+
+[[file:images/]] contiene las imágenes usadas en latinrdatatransforme_spanish.qmd
+
 [[file:figure-melt-exercises_vm.R]] contiene código para el ejercicio gráfico de melt con datos::flores. 
 
 [[file:figure-1-iris-dt-single-2value-vespa%C3%B1ol1.svg][SVG file]] etc : contiene las imágenes para adaptar la explicación conceptual para melt proveniente de
 [[https://github.com/tdhock/nc-article/blob/master/figure-1-iris.svg][nc article]].
 
+Nota: Para los archivos fuente svg, la fuente que use fue Sans.
 
 
 
