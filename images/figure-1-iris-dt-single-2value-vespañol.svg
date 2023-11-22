@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="202.18526mm"
+   height="108.4236mm"
+   viewBox="0 0 202.18526 108.4236"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="figure-1-iris-dt-single-2value-vespañol.svg"
+   inkscape:export-filename="figure-1-iris-dt-single-2value.png"
+   inkscape:export-xdpi="393.73999"
+   inkscape:export-ydpi="393.73999"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs2">
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker2211"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path2209"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.0331964"
+     inkscape:cx="365.85493"
+     inkscape:cy="184.37927"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="1358"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:snap-text-baseline="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid150"
+       originx="1.5571175e-08"
+       originy="2.4743748e-08"
+       spacingy="1"
+       spacingx="1"
+       units="mm"
+       visible="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-5.788445,5.1522327)">
+    <rect
+       style="opacity:1;fill:#cccccc;stroke:#0000ff;stroke-width:0.414412;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2341-3"
+       width="18.760756"
+       height="6.9768829"
+       x="138.01398"
+       y="50.692215" />
+    <rect
+       style="opacity:1;fill:#cccccc;stroke:#000000;stroke-width:0.468469;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2320-9-8"
+       width="14.7514"
+       height="6.4945312"
+       x="128.90114"
+       y="-4.9179983" />
+    <rect
+       style="opacity:1;fill:#cccccc;stroke:#0000ff;stroke-width:0.427959;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2341"
+       width="20.126501"
+       height="6.9355912"
+       x="154.63412"
+       y="50.726734" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.7625px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="61.854607"
+       y="55.567307"
+       id="text881"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         x="61.854607"
+         y="55.567307">     valor   Especie  flores          dim    part </tspan><tspan
+         sodipodi:role="line"
+         id="tspan2"
+         x="61.854607"
+         y="61.520432">1:   5.1     setosa      1              Largo Sepalo</tspan><tspan
+         sodipodi:role="line"
+         id="tspan10"
+         x="61.854607"
+         y="67.473557">2:   3.5     setosa      1              Ancho Sepalo</tspan><tspan
+         sodipodi:role="line"
+         id="tspan15"
+         x="61.854607"
+         y="73.426682">3:   1.4     setosa      1              Largo Petalo</tspan><tspan
+         sodipodi:role="line"
+         id="tspan16"
+         x="61.854607"
+         y="79.379807">4:   0.2     setosa      1              Ancho Petalo</tspan><tspan
+         sodipodi:role="line"
+         id="tspan17"
+         x="61.854607"
+         y="85.332932">5:   7.0 versicolor     51            Largo Sepalo</tspan><tspan
+         sodipodi:role="line"
+         id="tspan18"
+         x="61.854607"
+         y="91.286057">6:   3.2 versicolor     51            Ancho Sepalo</tspan><tspan
+         sodipodi:role="line"
+         id="tspan25"
+         x="61.854607"
+         y="97.239182">7:   4.7 versicolor     51            Largo Petalo</tspan><tspan
+         sodipodi:role="line"
+         id="tspan26"
+         x="61.854607"
+         y="103.19231">8:   1.4 versicolor     51            Ancho Petalo</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.7625px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="5.788445"
+       y="8.3796444"
+       id="text881-0"><tspan
+         sodipodi:role="line"
+         id="tspan5"
+         x="5.788445"
+         y="8.3796444">     <tspan
+   style="font-size:4.23333px"
+   id="tspan9">Largo</tspan><tspan
+   style="font-size:4.23333px"
+   id="tspan11">.Sepalo      Ancho.Sepalo     Largo.Petalo         Ancho.Petalo   Especie  flores</tspan></tspan><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         x="5.788445"
+         y="14.484816">  1:               5.1                3.5                  1.4              0.2     setosa        1</tspan><tspan
+         sodipodi:role="line"
+         id="tspan7"
+         x="5.788445"
+         y="20.437941">  2:               7.0                3.2                  4.7              1.4     versicolor  51</tspan><tspan
+         sodipodi:role="line"
+         id="tspan8"
+         x="5.788445"
+         y="26.391066" /></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.386815;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker2211)"
+       d="m 193.60027,35.572448 v 7.14059 H 178.3659"
+       id="path2201"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.7625px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="14.640726"
+       y="59.054913"
+       id="text2263"><tspan
+         sodipodi:role="line"
+         id="tspan19"
+         x="14.640726"
+         y="59.054913">Convierte </tspan><tspan
+         sodipodi:role="line"
+         id="tspan20"
+         x="14.640726"
+         y="65.008034">4 medidas de</tspan><tspan
+         sodipodi:role="line"
+         id="tspan21"
+         x="14.640726"
+         y="70.961159">entradas de </tspan><tspan
+         sodipodi:role="line"
+         id="tspan22"
+         x="14.640726"
+         y="76.914284">columnas en </tspan><tspan
+         sodipodi:role="line"
+         id="tspan23"
+         x="14.640726"
+         y="82.867409">1 valor de columna </tspan><tspan
+         sodipodi:role="line"
+         id="tspan24"
+         x="14.640726"
+         y="88.820534" /></text>
+    <rect
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:0.518;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2320"
+       width="37.614998"
+       height="7.7549224"
+       x="12.475658"
+       y="2.8624594" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="24.401201"
+       y="31.681328"
+       id="text2504"><tspan
+         sodipodi:role="line"
+         id="tspan13"
+         x="24.401201"
+         y="31.681328">Entrada amplia con 4 medidas de columnas</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.17222px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="9.2012129"
+       y="46.398499"
+       id="text2504-1"
+       inkscape:transform-center-x="5.1216465"
+       inkscape:transform-center-y="4.0973172"><tspan
+         sodipodi:role="line"
+         id="tspan14"
+         x="9.2012129"
+         y="46.398499">Salida Larga con 1 valor de columna</tspan></text>
+    <rect
+       style="opacity:1;fill:none;stroke:#0000ff;stroke-width:0.59884;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2492-9"
+       width="17.38913"
+       height="6.9013495"
+       x="68.656487"
+       y="50.723812" />
+    <rect
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:0.518;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2320-6"
+       width="33.934124"
+       height="7.7801213"
+       x="122.06316"
+       y="2.8498602" />
+    <rect
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:0.518;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2320-4"
+       width="34.395866"
+       height="7.7549229"
+       x="50.109055"
+       y="2.8624594" />
+    <rect
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:0.518;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2320-1"
+       width="37.614998"
+       height="7.7549229"
+       x="84.504921"
+       y="2.8624594" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.269798px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="10.68679"
+       y="-0.31230789"
+       id="text881-0-2"
+       transform="scale(1.0197104,0.98067059)"><tspan
+         sodipodi:role="line"
+         x="10.68679"
+         y="-0.31230789"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:Courier;-inkscape-font-specification:Courier;stroke-width:0.269798px"
+         id="tspan954-0"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:Sans;-inkscape-font-specification:Sans;stroke-width:0.269798px"
+   id="tspan982">Tipo de leyenda columna: Nombre</tspan> <tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:Sans;-inkscape-font-specification:Sans;stroke-width:0.269798px"
+   id="tspan985">= <tspan
+   style="font-size:4.40972px"
+   id="tspan4">medida/valor,</tspan>   </tspan>Nombre <tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:Sans;-inkscape-font-specification:Sans;stroke-width:0.269798px"
+   id="tspan989">= variable,</tspan> Nombre <tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;font-family:Sans;-inkscape-font-specification:Sans;stroke-width:0.269798px"
+   id="tspan987">= id.</tspan></tspan></text>
+    <rect
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:0.468469;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2320-9"
+       width="14.7514"
+       height="6.4945307"
+       x="69.348412"
+       y="-4.9179983" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.7625px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="178.04762"
+       y="63.065899"
+       id="text2263-1"><tspan
+         sodipodi:role="line"
+         id="tspan50"
+         x="178.04762"
+         y="63.065899">y 2</tspan><tspan
+         sodipodi:role="line"
+         id="tspan51"
+         x="178.04762"
+         y="69.01902">columnas de</tspan><tspan
+         sodipodi:role="line"
+         id="tspan52"
+         x="178.04762"
+         y="74.972145">variable </tspan><tspan
+         sodipodi:role="line"
+         id="tspan53"
+         x="178.04762"
+         y="80.92527">salida</tspan><tspan
+         sodipodi:role="line"
+         id="tspan54"
+         x="178.04762"
+         y="86.878395" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;line-height:121%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;stroke-width:0.264999;stroke-dasharray:none"
+       x="70.833359"
+       y="-2.0792451"
+       id="text3"><tspan
+         sodipodi:role="line"
+         id="tspan3"
+         style="stroke-width:0.265"
+         x="70.833359"
+         y="-2.0792451">N</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:121%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;stroke-width:0.264999;stroke-dasharray:none"
+       x="11.422256"
+       y="5.8593073"
+       id="text12"><tspan
+         sodipodi:role="line"
+         id="tspan12"
+         style="stroke-width:0.265"
+         x="11.422256"
+         y="5.8593073"> </tspan></text>
+  </g>
+</svg>
