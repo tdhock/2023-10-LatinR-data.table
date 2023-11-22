@@ -1,0 +1,1537 @@
+---
+title: "data.table"
+author: " por Mara Destéfanis"
+format: 
+  revealjs:
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: images/data.table.png
+    css: styles.css
+resources:
+- latinrdatatransforme_spanish.pdf
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, (width=150))
+
+```
+
+```{r, results='hide', echo=FALSE}
+
+library(datos)
+library(data.table)
+datos::vuelos
+library(ggplot2)
+library(directlabels)
+
+vuelos <- vuelos
+setDT(vuelos)
+```
+
+## `Uso y contribución del paquete data.table para análisis eficiente de BigData` {.smaller transition="Slide" background="#E5E9E9"}
+
+\
+
+`Mara Destéfanis`\
+[maragdestefanis\@gmail.com](mailto:maradestefanis@gmail.com)
+
+\
+Descargar las diapositivas desde: <http://ml.nau.edu/latinr_spanish.pdf>\
+\
+
+::: {.column width="10%"}
+![](images/National%20Science%20Foundation.jpg){width="120"}
+:::
+
+::: {.column width="70%"}
+Fundado por el programa NSF POSE, proyecto #2303612. diapositivas adaptadas de Toby Dylan Hocking, Arun Srinivasan, y datatable-viñeta de introducción - gracias!
+:::
+
+::: {.column width="10%"}
+![](images/data.table.png){width="90"}
+:::
+
+## `¿Quien soy?` {.smaller background="#E5E9E9"}
+
+\
+\
+
+-   Máster en Ciencia de Datos y Lic. Comunicación Social.
+-   Profesora en Colaboración con los Postgrado de Negocios de la Universidad de Belgrano Argentina y la Universidad Siglo XXI Argentina
+-   ¡Uso R desde el año 2021.
+-   Usuario de `data.table` desde 2023, contribuyo desde el año 2023.
+-   Consultora y Periodista Independiente.
+
+## `Resumen de la presentación` {.smaller background="#E5E9E9"}
+
+\
+\
+\
+
+1.  ¿Qué es data.table?\
+2.  ¿Porqué data.table es tan popular/poderoso? (eficiente)\
+3.  Usando data.table para análisis eficiente de big data.\
+4.  Contribuyendo a data.table
+
+-   Traducción de documentos de inglés a otro lenguaje, u\$s500.
+-   Viajes de premios: u\$s 2700 para hablar de data.table en conferencias.
+-   Participación en comunidad, problemas y solicitudes de extracción en GitHub.
+
+# 1/4 ¿Qué es data.table? {transition="Slide" background="#2C8484"}
+
+## `data.frame en R` {.smaller background="#E5E9E9"}
+
+\
+
+::: columns
+::: {.column width="80%"}
+-   Estructura de datos en columnas 2D
+
+    -   filas y columnas
+    -   subconjunto de filas `DF[DF$id != “a”, ]`
+    -   selección de columnas `DF[, “val”]`
+    -   subconjunto de filas & selección de columnas `DF[DF$id != “a”, “val”]`\
+
+-   Por ahí va la cosa...
+:::
+
+::: {.column width="20%"}
+![](images/tabla1.jpg){width="200"}
+:::
+:::
+
+## ![](images/data.table.png){width="80"} `data.table` {.smaller transition="Slide" background="#E5E9E9"}
+
+\
+
+::: {.column width="60%"}
+-   Como data.frame, pero con más poder en la sintaxis de código R, y la implementación de código en C.
+
+-   Paquete R en CRAN desde 2006.
+
+-   Creado por Matt Dowle, co-autor Arun Srinivasan desde 2013, + 50 colaboradores.
+
+-   Hay `1463` paquetes en CRAN que requieren data.table (mas popular en porcentaje 0.05% de todos los paquetes de CRAN, rankea 11/19932 desde el 1 de octubre del 2023)
+:::
+
+::: {.column width="30%"}
+![](images/tabla1.jpg){out.width="30%" width="200"}
+:::
+
+## `data.table y tidyverse` {.smaller transition="Slide" background="#E5E9E9"}
+
+::: {.column .smaller width="70%"}
+-   El paquete de tidyverse 1.0 se publicó en **CRAN** en el año 2016.
+-   Los paquetes de tidyverse tibble + readr + tidyr + dplyr \~= data.table
+-   tidyverse usa **DF \|\> ... \|\>**, data.table uses **DT\[...\]\[...\]**
+-   Tidyverse es verborrágico (tiene muchos códigos), data.table es conciso (pocos códigos) por ejemplo: tibble **\|\> filter(x=="a") \|\> group_by(z) \|\> summarise(m=mean(y)) vs: DT\[x=="a", .(m=mean(y)), by=z\]**
+:::
+
+::: {.column .smaller width="20%"}
+![](images/slide7.jpg){width="400"} ![](images/data.tables.png)
+:::
+
+-   Tidyverse tiene muchas dependencias, data.table no.(es fácil de instalar)
+-   Tidyverse con frecuencia presenta quiebres por cambios, data.table se asegura de tener compatibilidad (para los usuarios es fácil la **update** hacia nuevas versiones de data.table)
+
+# 2/4 ¿Porqué data.table es tan popular/poderoso? (eficiente) {.smaller transition="Slide" background="#2C8484"}
+
+## `Porque Data table tiene dos clases de eficiencia` {background="#E5E9E9"}
+
+\
+
+-   Eficiencia en la **sintaxis de R** (permite reducir el tiempo de programación)\
+
+-   Eficiencia en la **implementación de código C** ( ya que reduce tiempo y memoria. Así un conjunto de datos puede analizarse con pocos recursos de cómputo)
+
+## `Sintaxis de R con data table` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Piensa en términos básicos de unidades: filas, columnas, grupos.
+    
+-   Matt habló en el 2014 a usuarios de R: <https://youtu.be/qLrdYhizEMg?t=1m54s>\
+    ![](images/slide10.jpg)
+
+## `Sintaxis del código R con data table` {.smaller transition="Slide" background="#E5E9E9"}
+
+::: {.column .smaller width="70%"}
+-   Los datos también se estructuran en columnas.
+    -   2D - `filas` y `columnas`
+-   `subset` de filas - DT\[`id!="a"`,\]
+-   `select` de columnas - DT\[, `val`\]
+-   `compute en` columnas - DT\[, `mean(val)`\]
+-   `subset` de filas & `select/ compute en` columnas - DT\[`id!="a", mean(val)`\]
+-   3er dimensión virtual - `group by`\
+:::
+
+::: {.column .smaller width="20%"}
+![](images/slide11.jpg){width="200" fig-align="center"}
+:::
+
+## `data.frame(DF) vs data.table(DT)` {.smaller background="#E5E9E9"}
+
+::: {.column .smaller width="40%"}
+![](images/slide121.jpg)
+:::
+
+::: {.column .smaller width="40%"}
+![](images/slide122.jpg)
+:::
+
+-   Considera subconjuntos de filas con "abd" en columna de **code,** luego computa la suma de los valores en la columna **vaIA**.\
+-   DF necesita que se repita, DT no lo requiere.\
+-   `sum` puede ponerse en corchetes con DT rara vez en DF.
+
+## `data.frame(DF) vs data.table(DT)` {.smaller background="#E5E9E9"}
+
+::: {.column .smaller width="40%"}
+![](images/slide131.jpg)
+:::
+
+::: {.column .smaller width="40%"}
+![](images/slide132.jpg)
+:::
+
+-   Para los subconjuntos de filas con "abd" en columna `code`, setea los valores en la columna `vaIA` para valores perdidos/NA
+
+-   En DF necesitamos repetir, en DT no.
+
+-   DF usa asignación de flecha `\<-`, DT usa morsa `:=`
+
+## `data.frame(DF) vs data.table(DT)` {.smaller background="#E5E9E9"}
+
+::: {.column .smaller width="40%"}
+![](images/slide141.jpg)
+:::
+
+::: {.column .smaller width="40%"}
+![](images/slide142.jpg)
+:::
+
+-   Summarize by group: considera el subgrupo de filas con "abd" en columna de code. Luego calcula la suma de los valores en las columnas`vaIA` y `vaIB`, para cada valor único de la columna de identificación.\
+-   En DT todo está entre `corchetes DT []`, si usamos DF necesitamos usar otras funciones como por ejemplo: agregar **cbind**.
+
+## `data.frame(DF) vs data.table(DT)` {.smaller background="#E5E9E9"}
+
+::: {.column .smaller width="40%"}
+![](images/slide151.jpg)
+:::
+
+::: {.column .smaller width="40%"}
+![](images/slide152.jpg)
+:::
+
+-   Modificar al unirse: cada fila de DT1 que coincida con una fila de DT2 en las columnas de identificación y code, setea vaIA en val.
+
+-   Fácil de hacer con DT,`:=` asignación y `on=` argumento.
+
+-   Con DF en base R es posible hacer pero difícil.
+
+## `dos clases de eficiencia de data table` {.smaller background="#E5E9E9"}
+
+\
+\
+
+-   Eficiencia en sintaxis de código R (permite disminuir el tiempo de programación)\
+-   **Implementando código C es eficiente ya que disminuye el tiempo y la memoria (sobre todo cuando hay largos conjuntos de datos ya que permite analizarlos usando pocos recursos de cómputo)**
+
+## 
+
+**`data.table::fread` es extremadamente eficiente en lector de archivos CSV**
+
+Lee números reales de CSV, 100 x N\
+![](images/slide7.png)
+
+Fuente del código <https://tdhock.github.io/blog/2023/dt-atime-figures/>
+
+##  {.smaller transition="Slide"}
+
+**data. table calcula resúmenes 100 veces más rápido que otros.**
+
+Promedio-mean-, desviación estándar -SD- sobre 10 números reales, *Ntimes*
+
+![](images/slide18.jpg)
+
+En Machine Learning, la validación cruzada k-fold estima la pérdida por hiperparámetros, como los nros. *epochs* de entrenamiento en una red neuronal. data.table puede computar eficientemente el promedio de pérdida sobre k=10, por cada N *epochs*
+
+##  {.smaller transition="Slide"}
+
+**data.table::fwrite es extremadamente eficiente CSV file writer**
+
+Escribe números reales desde CSV, 100 x N
+
+![](images/slide21.jpg)\
+Fuente del código <https://tdhock.github.io/blog/2023/dt-atime-figures/>
+
+## `El paquete mas sobreestimado` {.smaller transition="Slide" background="#E5E9E9"}
+
+\
+![](images/connortw.jpg)Data.table es el paquete R más subestimado. Me he ahorrado `días` esperando que se completen los análisis.
+
+## `Poderoso` {.smaller transition="Slide" background="#E5E9E9"}
+
+![](images/alexandertw.jpg)
+
+Alguien debería simplemente escribir una versión de data.table de **#Rstat** para **#python**, fin de la historia. No existe nada tan poderoso en este momento.
+
+## `data.table data.table` {.smaller transition="Slide" background="#E5E9E9"}
+
+![](images/joeytw.jpg)
+
+## `Gran tristeza` {.smaller transition="Slide" background="#E5E9E9"}
+
+![](images/JimSavagetw.jpg)
+
+Con gran tristeza me veo hoy forzada a usar data.table.
+
+# 3/4 Usando data.table para análisis eficiente en bigdata {.smaller transition="Slide" background="#2C8484"}
+
+## `Instalando data.table, obtenemos PDF docs` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   `Ejercicio:` instalar la versión de desarrollo desde GitHub, que contiene la más recientes características.
+
+-   Descargar *cheat sheet* <http://ml.nau.edu/dtcheat.pdf>
+
+-   Comenzando con R - edición tinyverse <http://ml.nau.edu/tiny.pdf>\
+    \
+    **\>install.packages("remotes")\
+    \>remotes::install:github("Rdatatable/data.table")\
+    (necesitas compilar: xcode para mac o rtools para windows)\
+    o: si no tienes un compilador: instala desde CRAN el último update:**
+
+    **\> install.packages("data.table")\
+    \> data.table::update_dev_pkg()**
+
+## `Creando data.table desde R objectos` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   data.table(columna_nombre=columna_valor), como data.frame.
+
+-   valores en columnas cortas reciclados a lo largo de la columna más grande.
+
+```{r}
+library(data.table)
+```
+
+```{r}
+data.table(
+  ID = c("b", "b","a", "a","c"),
+  a = 1:2,
+  b = 7,
+  c = 13:18)
+```
+
+## `data.table vs columnas frame` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Los nombres de las variables no sintácticas se mantienen de forma predeterminada.
+
+```{r}
+
+head(data.table("10^8 m^3"=Nile, year=1871:1970))
+
+```
+
+```{r}
+#| echo: true 
+head(data.frame("10^8 m^3"=Nile, year=1871:1970))
+
+```
+
+## `data.table vs columnas de listas de data.frame` {.smaller transition="Slide" background="#E5E9E9"}
+
+```{r}
+
+data.table(L=list("scalar", c("vec","tor")),x=1:2)
+```
+
+```{r}
+
+data.frame(L=I(list("scalar", c("vec","tor"))),x=1:2)
+```
+
+## `Ejercicios` {background="#E5E9E9"}
+
+\
+- `Tu turno`: convertí el conjunto de **datos::flores** en data table vía data.table.
+
+-   Crea un data.table con una fila, y columnas con los siguientes datos: tu nombre (*character*), años de experiencia con R (*numeric*), lugar de nacimiento(*character*), ciudad de residencia(*character*), idiomas(s) (*list of character*)
+
+## `Lee CSV desde el archivo` {background="#E5E9E9"}
+
+-   Vuelos de Nueva York (JFK, LGA o EWR) durante 2013.
+
+```{r, results='hide'}
+#if(!file.exists("vuelos.csv"))download.file("https://ml.nau.edu/vuelos.csv",
+#  "vuelos.csv") 
+#(vuelos<-data.table::fread("vuelos.csv"))
+```
+
+```{r, echo=FALSE, results='markup'}
+
+p <- print(vuelos[1:2,])
+```
+
+## `Lee CSV desde el comando shell` {.smaller background="#E5E9E9"}
+
+\
+\
+- Es útil con comandos que generan datos de salida en CSV ( no archivos intermediarios)\
+- *`egrep`* es útil si no necesitas/o querés leer todo el conjunto de datos en R
+
+`data.table::fread("egrep 'LAX|anio'  vuelos.csv")`
+
+## `Ejercicio`: Lee CSV desde URL {.smaller background="#E5E9E9"}
+
+-   Usualmente puede descargarse el archivo primero *download.file()*, para evitar tener que bajar de nuevo el archivo *re-starting R* Es conveniente.\
+    \
+-   Llegó tu turno. Trata con el siguiente código:
+
+**vuelos \<- data.table::fread("http://ml.nau.edu/vuelos.csv")**
+
+## `Subconjunto de filas usando i` {.smaller background="#E5E9E9"}
+
+-   Piensa en términos básicos de unidades: filas, columnas, grupos.
+
+-   La sintaxis de data.table provee marcador de posición para cada uno de ellos.
+
+![](images/slide33.jpg)
+
+## `Subconjunto de filas lógicas` {.smaller background="#E5E9E9"}
+
+-   Selecciona todos los vuelos con "JFK" del aeropuerto de origen en el mes de Junio.
+-   DT\[rows, \] la coma no es necesaria (pero permitida).
+
+```{r, results='hide'}
+vuelos[origen == "JFK" & mes == 6]
+```
+
+```{r, echo=FALSE, results='hide'}
+p_uno <- vuelos[origen == "JFK" & mes == 6]
+
+```
+
+```{r, echo=FALSE, results='markup'}
+p_uno <- print(p_uno[1:3,])
+```
+
+## `Conjunto de filas enteras` {.smaller background="#E5E9E9"}
+
+-   Toma los primeros dos vuelos, o todos exceptuando el primero de los dos.
+-   Conjunto de enteros (*Integer*) en DT trabaja como en DF.
+
+```{r, results='hide'}
+vuelos[1:2]
+```
+
+```{r, echo=FALSE, results='hide'}
+
+p2 <- vuelos[1:2] 
+```
+
+```{r, echo=FALSE, results='markup'}
+p2 <- print(p2[1:1,])
+```
+
+```{r, results='hide'}
+vuelos[-(1:1)]
+```
+
+```{r, echo=FALSE, results='hide'}
+
+p3 <- vuelos[-(1:2)]
+```
+
+```{r, echo=FALSE,results='markup'}
+p3 <- print(p3[1:1,])
+```
+
+## `Ordenar filas` {.smaller background="#E5E9E9"}
+
+-   Ordena los vuelos primero por columna origen en orden ascendente, y luego por destino en orden descendentes.
+
+-   Ordena data.table de manera eficiente que se integre a la base R en 2016!
+
+```{r, results='hide'}
+vuelos[order(origen, -destino)]
+```
+
+```{r, echo=FALSE, results='hide'}
+p4 <- vuelos[order(origen, -destino)]
+```
+
+```{r, echo=FALSE, results='markup'}
+p4 <- print(p4[1:2,])
+```
+
+## `Ejercicios` {.smaller background="#E5E9E9"}
+
+\
+\
+- Tu turno. ¿Cuantas filas hay con **aerolinea** "AA" y **destino** "LAX"?\
+- Si ordenas la tabla. ¿Cuál es la primer fecha y ultima mes/dia/hora?\
+\
+- Una pista: puedes usar DT\[...\]\[...\] en una cadena.\
+Similar para *piping*, DF \|\>...\|\>...
+
+## `Computa columnas in j` {.smaller background="#E5E9E9"}
+
+-   Piensa en términos básicos de unidades:filas, columnas,grupos
+
+    
+-   La sintaxis de data.table provee Marcador de posición para cada una de ellas.\
+    ![](images/slide38.jpg)
+
+## `Select una columna` {.smaller background="#E5E9E9"}
+
+-   DT\[,"atraso_llegada"\] -\> data.table con una columna.
+
+-   DT\[,"atraso_llegada"\] -\> vector\
+    como DT\$atraso_llegada o DT\[\["atraso_llegada"\]\] en base a R
+
+-   **Ejercicio:** usa hist() para dibujar un histograma de atrasos de llegada.
+
+```{r}
+
+str(vuelos[, "atraso_llegada" ])
+```
+
+```{r}
+str(vuelos[, "atraso_llegada"]) # como DT[["atraso_llegada"]] o DT$atraso_llegada
+```
+
+## `Select 2 columnas con literal` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Si data.table/list/. es usada en j, entonces un data.table se retorna.
+
+-   También puedes usar c("name") en j
+
+```{r, results='hide'}
+vuelos[, data.table(atraso_llegada, atraso_salida)]
+```
+
+```{r, echo=FALSE, results='hide'}
+p5 <-vuelos[, data.table(atraso_llegada, atraso_salida)] 
+```
+
+```{r, echo=FALSE, results='markup'}
+p5 <- print(p5[1:3,])
+```
+
+```{r, results='hide'}
+vuelos[, c("atraso_llegada", "atraso_salida")]
+```
+
+```{r, echo=FALSE, results='hide'}
+p6 <- vuelos[, c("atraso_llegada", "atraso_salida")]
+```
+
+```{r, echo=FALSE, results='markup'}
+p6 <- print(p6[1:3,])
+```
+
+## `Select 2 col. c/variable` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Puedes usar con`=FALSE o double dot  ..` ( como un nivel arriba de la ruta del archivo, busca por *select_cols* en el ambiente no como un nombre de columna)
+
+    ```{r}
+    (DT=data.table(x=1:2, y=3:4,select_cols=c("foo", "bar")))
+    ```
+
+    ```{r}
+    select_cols=c("x", "y")
+    DT[, select_cols]
+    ```
+
+```{r}
+DT[,..select_cols]
+```
+
+```{r}
+DT[, select_cols, with=FALSE]
+```
+
+## `Select todas excepto dos` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Puedes usar ambos `!` o `-` para negar la selección de columnas.
+
+```{r, results='hide'}
+retrasos_cols= c("atraso_llegada", "atraso_salida")
+head(vuelos[, !..retrasos_cols])
+```
+
+```{r, echo=FALSE, results='hide'}
+
+retrasos_cols= c("atraso_llegada", "atraso_salida")
+p6 <-head(vuelos[, !..retrasos_cols])
+
+```
+
+```{r, echo=FALSE, results='markup'}
+p6 <- print(p6[1:2,])
+```
+
+```{r,results='hide'}
+head(vuelos[, -..retrasos_cols])
+```
+
+```{r, echo=FALSE, results='hide'}
+p7 <- head(vuelos[, -..retrasos_cols])
+```
+
+```{r, echo=FALSE, results='markup'}
+
+p7 <- print(p7[1:2,])
+```
+
+## `Select rangos de columnas` {transition="Slide" background="#E5E9E9"}
+
+-   Puedes usar `col1:col2` -ambas- o todas (negativo `!` o `-`)
+
+```{r, echo=TRUE, results='hide'}
+head(vuelos[, anio:dia])
+```
+
+```{r, echo=FALSE, results='markup'}
+print(vuelos[1:2, ])
+```
+## `Select rangos de columnas` {transition="Slide" background="#E5E9E9"}
+
+```{r, echo=TRUE, results='hide'}
+head(vuelos[, !(anio:dia)])
+```
+```{r}
+print(vuelos[1:2, ])
+```
+
+
+## `Rename y compute las columnas` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   **Ejercicio**: trata de usar `.()` o `list()` en vez de data.table() en j
+-   .() es un alias de list() los items en listas son columnas de la tabla.
+
+```{r}
+vuelos[, data.table(puntodestino=destino, aire_horas=tiempo_vuelo/60)]
+```
+
+## `Resume todas las filas` {.smaller transition="Slide" background="#E5E9E9"}
+
+**vuelos\[, .(m_arr = mean(atraso_llegada), m_dep = mean(atraso_salida))\]**
+
+**vuelos\[, .(rango_llegada = range(atraso_llegada), stat=c("min","max"))\]**
+
+-   En `data.table/list/.` en j, resume funciones que pueden usarse.
+-   En este caso podemos usar `mean`, con retorno de un número simple.
+-   Podemos también usar `range`, con la cual retorna dos números.
+-   Podemos computar `mean`, `min` ,`max` de arribos y partidas de todos los vuelos.
+-   Ejercicio: computa min/max **tiempo_vuelo** y **distancia**
+
+## `Crea/elimina columnas en j` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Piensa en términos básicos de unidades: filas, columnas,grupos.
+
+
+
+-   Podemos usar DT\[, variable:= valor\] o set(DT, j="variable", valor=valor)
+
+![](images/slide38.jpg)
+
+## `Comparando columnas en base a R en data.table` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   En la columna denominada "mundo" establece el valor de "hola"
+-   Es posible utilizar código base R con data.table.
+-   Históricamente, := ha sido más eficiente en (tiempo/memoria)
+-   Recientes versiones de R lo han mejorado enormemente!
+
+|          | Base código R                    | código data.table                     |
+|----------------|--------------------------|------------------------------|
+| Literal  | DF\$mundo \<- "Hola"             | DT\[, mundo := "hola" \]              |
+| Variable | DF\[mi_var_nombre\]\] \<- "Hola" | set(DT,j=my_var_nombre, value="Hola") |
+
+## `Crear valor en las columnas:=` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   DT\[, variable := valor\] puede usarse para crear nuevas columnas o updates.
+-   Mismo efecto que DT\$variable \<- valor, o DT\[\["variable"\]\] \<- valor
+
+```{r}
+mes.dt <- vuelos[, .(mes, tiempo_vuelo, distancia)]
+```
+
+```{r}
+head(mes.dt)
+```
+
+```{r}
+mes.dt[, aire_horas := tiempo_vuelo/60]
+```
+
+```{r}
+head(mes.dt)
+```
+
+## `Elimina columnas := NULL` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   DT\[, variable :=NULL\] elimina columnas
+-   Todas := las operaciones son por referencias (eficiente)
+
+```{r}
+head(mes.dt)
+```
+
+```{r}
+mes.dt[, tiempo_vuelo := NULL]
+```
+
+```{r}
+head(mes.dt)
+```
+
+## `set()crea/elimina columnas` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   set(DT, j="col_name", value=col_val) es igual que DT\[, col_name :=col_val\]
+-   Usualmente cuando los nombres de las columnas estan almacenados en una variable:
+
+```{r, }
+my_var_name = "nuevita"
+set(vuelos, j=my_var_name,
+    value="HOLA!")
+my_var_name
+```
+```{r}
+print(vuelos[1:1, ])
+```
+
+`Elimina Columnas` 
+
+**set(vuelos, j=my_var_name, value= NULL)**
+ 
+
+## `Ejercicios` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Crea nuevas columnas aire_horas := tiempo_vuelo/60 como en las diapositivas previas.
+-   Crea una nueva columna hora_llegada := + aire_horas
+-   Usa vuelos\[, range(horas)\] para encontrar el rango normal de la variable hora.
+-   Hace un subconjunto para encontrar cuantas filas tienen hora_llegada \> max(hora)
+-   Crea una nueva variable dia_llegada con la cual sea "same" or "next" ifelse(hora_llegada\>max(horas), "next", "same")
+
+## `Computa subconjunto con iyj` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Piensa en términos básicos de unidades: filas, columnas, grupos.
+
+-   La sintaxis de data.table da un lugar para cada uno. ![](images/page52.jpg)
+
+## `Resumiendo un subconjunto de filas` {.smaller transition="Slide" background="#E5E9E9"}
+
+```{r}
+vuelos[origen == "JFK" & mes == 6L, length(destino)]
+```
+
+```{r}
+vuelos[origen == "JFK" & mes == 6L, .N]
+```
+
+```{r}
+vuelos[origen == "JFK" & mes == 6L, .(m_llegada=mean(atraso_llegada), num_vuelos=.N)]
+```
+
+-   ¿Cuántos viajes se realizaron desde el año 2013 desde el aeropuerto de "JFK" en el mes de junio y cual es el promedio de partidas y retraso en la llegada ?
+-   Especial símbolo .N puede usarse en \[\] para tener los números de las filas.
+-   Ejercicio: para todos los vuelos con positivas partidas, ¿Cuál fue el promedio *mean* de demora en las llegadas? y ¿Para vuelos con negativas partidas?
+
+## `Update columnas con:=` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   DT\[ i , variable := value\] se puede utilizar para actualizar filas que coinciden con i
+-   set(DT, i= , j="variable", value= ) útil para programar
+
+```{r}
+head(mes.dt)
+```
+
+```{r}
+mes.dt[distancia<100, aire_horas := 0]
+```
+
+```{r}
+head(mes.dt)
+```
+
+## `Ejercicios` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Continúa de previos ejercicios...
+-   Crea nuevas columnas `horas_aire := tiempo_vuelo/60` como las diapositivas previas.
+-   crea una nueva columna `horas_llegada := hora + horas_aire`.
+-   Crea una nueva columna `dia_llegada` de la cual sea ambos iguales o siguientes `ifelse(horas_llegada>max(hora), "next", "same")`
+-   Actualiza horas_llegada :=`horas_llegadas-24` para las filas con `horas_llegadas > 24` .
+-   Usa vuelos`[, range(horas_llegada)]` para confirmar el valor entre 0 y 24.
+
+## `Computa por c/grupo j y by` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Piensa en términos básicos de unidades: filas, columnas, grupos.
+
+
+-   La sintaxis de data.table provee un lugar para cada uno de ellos.
+
+![](images/slide56.jpg){fig.align="center"}
+
+## `Resumiendo por cada grupo` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   by=origen significa tratar a cada único valor de origen como un grupo.
+
+-   Por cada grupo/origen, podemos computar el número de vuelos y el promedio *mean* de los arribos y partidas.
+
+```{r}
+vuelos[, .(num_vuelos=.N), by=origen]
+```
+
+```{r}
+vuelos[, .(num_vuelos=.N, mean_retraso_llegada=mean(atraso_llegada)),
+        by=origen]
+```
+
+## `Resumiendo por cada grupo` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Muchas variables pueden especificarse vía *.() en by* lo que significa usar cada combinación única para todas las variables como un grupo.
+
+```{r}
+vuelos[, .(num_vuelos=.N, mean_retraso_llegada=mean(atraso_llegada)),
+        by=.(origen, destino)]
+```
+
+## `Nuevo by/gruping variables` {.smaller transition="Slide" background="#E5E9E9"}
+
+```{r}
+vuelos[, .(
+  num_vuelos=.N,
+  mean_retraso_llegada=mean(atraso_llegada)
+), by=.(
+  origen=tolower(origen),
+  destino.punt=destino
+)]
+```
+
+-   Las variables pueden renombrarse al computarse.
+-   Ejercicio: para todos los vuelos con retraso de salida positiva o negativa cual fue el promedio *mean* de las demoras de los arribos? Ayuda: usa sign(atraso_salida) en by.
+
+## `Usando los tres argumentos juntos` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Piensa en términos básicos de unidades: filas, columnas, grupos.
+
+-   La sintaxis de data.table provee un lugar para cada uno de ellos.
+
+![](images/slide60.jpg)
+
+## `Subconjunto de filas antes de resumir` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   i puede ser usada en el mismo tiempo que `j` y `by`.
+-   Para el subconjunto de vuelos con AA como **aerolínea**, por cada origen y destino, obtén el número de vuelos, y el promedio *mean* de arribos demorados.
+
+```{r, results='hide'}
+vuelos[aerolinea=="AA", .(num_vuelos=.N, mean_retraso_llegada=mean(atraso_llegada)), by=.(origen, destino)]
+```
+
+```{r, results='hide', echo=FALSE}
+p_trece <- vuelos[aerolinea=="AA", .(num_vuelos=.N, mean_retraso_llegada=mean(atraso_llegada)), by=.(origen, destino)]
+```
+
+```{r, echo=FALSE, results='markup'}
+
+p_trece <- print(p_trece[1:5,])
+
+```
+
+## `DT[i] dentro de j con by` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Para cada grupo, definido con un único valor de origen y destino, selecciona la primer fila, y las columnas tiempo_vuelo, distancia.
+
+-   Ayuda: .() es sinónimo de list(), por lo que data.table() debe ser usado aquí.
+
+```{r}
+vuelos[, data.table(tiempo_vuelo, distancia) [1] , by=.(origen,destino)]
+```
+
+## `SD[i] dentro de j con by` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Para cada grupo, definido de valores únicos de origen y destino, selecciona la primer fila, y todas las columnas.
+
+-   Ayuda: .SD es un data.table; lo que significa `"subconjunto de datos"` para un grupo.
+
+```{r, results='hide'}
+vuelos[, .SD[1], by=.(origen,destino)]
+```
+
+```{r, echo=FALSE, results='markup'}
+p_catorce <-vuelos[, .SD[1], by=.(origen,destino)] 
+```
+
+```{r, echo=FALSE, results='markup'}
+p_catorce <- print(p_catorce[1:3,])
+```
+
+## `.SD[i] dentro de j con by` {.smaller transition="Slide" background="#E5E9E9"}
+
+\
+\
+- Ejercicio: por cada origen y destino, obtiene la **última fila**.\
+\
+Ayuda: recordá que .N significa el número de filas en una tabla.
+
+-   Ejercicio: por cada origen y destino, obtené la **primer y última fila**.
+
+## `Escribir/leer CSV en piezas` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Piensa en términos básicos de unidades: filas, columnas, grupos.
+
+-   La sintaxis de data.table provee un lugar para cada uno.
+
+![](images/slide56.jpg)
+
+## `fwrite - escribe eficiente csv` {.smaller transition="Slide" background="#E5E9E9"}
+
+-Escribe el data set completo de vuelos a un disco.
+
+**fwrite(vuelos, "vuelos.csv")**
+
+## `DT[, j=fwrite(), by=variable]` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Escribe una fila por mes, 1.csv, 2.csv, etc.
+-   by= mes significa que en j, mes es escalable, por lo que paste0 ( mes, ".csv") puede ser usado para crear 1.csv, 2.csv, etc.
+
+```{r}
+vuelos[, fwrite(
+   data.table(tiempo_vuelo, distancia),
+   paste0(mes,".csv")
+   ), by=mes]
+```
+
+```{r}
+ Sys.glob("*.csv")
+```
+
+## `fread CSV, combinado con rbindlist` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   (1)inicialmente lista vacía, (2) en cada iteración del bucle for, asigna una tabla con un elemento de la lista, (3) rbindlist para crear una tabla simple con todos los datos.
+
+```{r}
+mes.dt.list <- list()
+```
+
+```{r}
+#(2)
+for(mes.csv in Sys.glob("*.csv")){
+  mes<- sub(".csv", "", mes.csv)
+  mes.dt.list[[mes.csv]] <- data.table(mes,fread(mes.csv))}
+
+#(3)  (mes.dt <- data.table::rbindlist(mes.dt.list))         
+```
+
+## `Lee muchos  CSV usando by` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   by=mes.csv significa computar `j=fread(mes.csv)` por cada único valor de mes.csv (por cada archivo CSV)
+-   Los resultados están combinados vía *rbindlist* y se retornan como una tabla simple.\
+
+`data.table(mes.csv=Sys.glob("*.csv")) [, fread(mes.csv) , by=mes.csv]`
+
+## `Ejercicios` {.smaller transition="Slide" background="#E5E9E9"}
+
+\
+\
+- Usa vuelos`[, fwrite(.SD), by=origen]`para escribir un archivo CSV para cada aeropuerto de Nueva York.
+
+-   Crea `CSV.dt`, a data.table de nombres de archivo CSV, usando Sys.glob("\*.csv")
+
+-   Usa `CSV.dt[, fread(origen.csv), by=origen.csv]` para leerlos de vuelta a R.
+
+## `Uniendo: cuando i es un data.table` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Piensa en términos básicos de unidades: filas, columnas, grupos.
+
+
+-   La sintaxis de data.table provee un lugar único para cada uno de ellos.
+
+![](images/slide33.jpg)
+
+## `Une DT con la tabla i: DT[i]` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Retorna cada una de las filas en vuelos que coincida con una fila en tres dias,
+-   con una fila NA al final del día que no coincida.
+
+```{r}
+(tres_dias<- rbind(
+  data.table(mes=3, dia=17, evento="St.Patrick"),
+  data.table(mes=9, dia=26, evento="Cumpleaños"),
+  data.table(mes=12, dia=25, evento="Navidad")))
+```
+
+```{r, results='hide'}
+vuelos[tres_dias, on=c("mes","dia")]
+```
+
+## `Unir dos tablas, c/múltiples argumentos` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   `mult="all"` está por defecto. Es decir, retorna todas las filas que coincidan.
+-   Al principio o al final hay otras opciones, retorna una fila por vuelo, para cada fila de los tres días.
+
+```{r}
+ vuelos[tres_dias, on=c("mes","dia"), mult="first"]
+```
+
+## `Unir dos tablas, c/múltiples argumentos` {.smaller transition="Slide" background="#E5E9E9"}
+
+*viene del slide anterior...*
+
+```{r}
+ vuelos[tres_dias, on=c("mes","dia"), mult="last"]
+```
+
+## `Uniendo dos tablas, sin filas NA` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   `nomatch=0L` para retornar a 0 filas cuando no hay coincidencias. (en vez de 1 NA fila)
+
+```{r}
+ vuelos[tres_dias, on=c("mes","dia"), nomatch=0L]
+```
+
+## `Uniendo dos tablas usando setkey` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   `setkey(DT, col1, col2)`usa para ordenar DT por col1 y col2
+-   Las uniones son rápidas, y no necesitan que se especifiquen con `on=`, si los datos ya tienen `key`
+
+```{r}
+ setkey(tres_dias, mes, dia)
+```
+
+```{r}
+setkey(vuelos, mes, dia)
+```
+
+```{r, results='hide'}
+vuelos[tres_dias]
+```
+
+```{r,echo=FALSE, results='hide'}
+p_quince <- vuelos[tres_dias]
+```
+
+```{r, echo=FALSE, results='markup'}
+p_quince<-print(p_quince[1:3,])
+```
+
+## `Uniendo dos tablas de otra forma` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Uniendo de otra manera siempre devuelve al menos una fila por cada vuelo, NA si no coincide.
+-   Recuerda:`DT[i]` significa que retorna una fila por cada elemento en i.
+
+```{r, results='hide'}
+ (join.dt <- tres_dias[vuelos, on=c("mes","dia")][order(is.na(evento))])
+```
+
+```{r,echo=FALSE, results='hide'}
+p_16 <- (join.dt <- tres_dias[vuelos, on=c("mes","dia")][order(is.na(evento))])
+```
+
+```{r, echo=FALSE, results='markup'}
+p_16 <- print(p_16[1:3, ])
+```
+
+```{r}
+ table(join.dt$evento, useNA="always")
+```
+
+## `Ejercicios` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   
+
+    ## Crea una tabla de datos de aeropuertos de la siguiente forma:
+
+    |     | codigo | nombre    |
+    |-----|--------|-----------|
+    | 1   | JFK    | kennedy   |
+    | 2   | LGA    | Laguardia |
+    | 3   | EWR    | Newark    |
+
+-   Une usando vuelos\[airports, `on=.(origen=codigo)]` que significa unir para unirse a la columna de origen en vuelos con el código columnas en aeropuertos.
+
+## `histograma de las distancias` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   o *mean* por cada distancia (0,1000, 2000, etc)
+![](images/slide78.jpg)
+
+## `Define los contenedores del histograma` {.smaller transition="Slide" background="#E5E9E9"}
+
+```{r}
+grid.point <- seq(0, 5000, by=1000)
+grid.dt <- data.table(grid.point, distancia=grid.point)
+```
+
+![](images/slide79.jpg)
+
+## `Rolling join, roll=Inf` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Cada punto de la cuadrícula coincide con los vuelos que ocurren después.
+
+```{r, results='hide'}
+setkey(grid.dt, distancia)
+setkey(vuelos, distancia)
+(join.dt <- grid.dt[vuelos, roll=Inf])
+```
+
+```{r, echo=FALSE, results='hide'}
+
+p_17 <- setkey(grid.dt, distancia)
+setkey(vuelos, distancia)
+(join.dt <- grid.dt[vuelos, roll=Inf])
+```
+
+```{r, echo=FALSE, results='markup'}
+p_17 <- print(p_17[1:3,])
+```
+
+![](images/slide801.jpg){fig-align="center"}
+
+## `Rolling join, roll=-Inf` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Cada punto de la cuadrícula coincide con los vuelos que ocurren antes.
+
+```{r, results='hide'}
+ setkey(grid.dt, distancia)
+ setkey(vuelos, distancia)
+ (join.dt <- grid.dt[vuelos, roll=-Inf])
+```
+
+```{r,echo=FALSE, results='hide'}
+
+p_20 <- setkey(grid.dt, distancia)
+ setkey(vuelos, distancia)
+ (join.dt <- grid.dt[vuelos, roll=-Inf])
+```
+
+```{r, echo=FALSE, results='markup'}
+
+p_20 <- print(p_20[1:3,])
+```
+
+![](images/slide81.jpg){fig-align="center"}
+
+## `Rolling join, roll="nearest"` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Cada punto de la cuadrícula coincide con los vuelos que ocurren más cerca.
+
+```{r, results='hide'}
+setkey(grid.dt, distancia)
+setkey(vuelos, distancia)
+(join.dt <- grid.dt[vuelos, roll="nearest"])
+```
+
+```{r, echo=FALSE, results='hide'}
+
+p_20 <- setkey(grid.dt, distancia)
+setkey(vuelos, distancia)
+(join.dt <- grid.dt[vuelos, roll="nearest"])
+```
+
+```{r, echo=FALSE, results='markup'}
+
+p_20 <- print(p_20[1:3,])
+```
+
+![](images/slide82.jpg){fig-align="center"}
+
+## `Resumiendo después de: rolling join` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   ¿ Cómo computar un resumen/histograma?
+
+```{r, results='hide'}
+join.dt[, .(num_vuelos=.N, mean_minutes=mean(tiempo_vuelo)), by=grid.point]
+```
+
+```{r, echo=FALSE, results='hide'}
+p_22 <- join.dt[, .(num_vuelos=.N, mean_minutes=mean(tiempo_vuelo)), by=grid.point]
+```
+
+```{r, echo=FALSE, results='markup'}
+
+p_22 <- print(p_22[1:2,])
+```
+
+![](images/slide831.jpg){fig-align="center"}
+
+## `Desigualdades une con on=.(DTcol < icol)` {.smaller transition="Slide" background="#E5E9E9"}
+
+Une todas las filas que satisfacen las desigualdades dadas.
+
+```{r, results='hide'}
+ (rect.dt <- data.table(   grid.point, min_dist=grid.point-200, max_dist=grid.point+400))
+```
+
+```{r, echo=FALSE, results='hide'}
+
+p_23 <- (rect.dt <- data.table( grid.point, min_dist=grid.point-200, 
+   max_dist=grid.point+400))
+```
+
+```{r, echo=FALSE, results='markup'}
+
+p_23 <- print(p_23[1:2,])
+  
+```
+
+```{r, results='hide'}
+ head(join.dt <- rect.dt[vuelos, .( distancia, tiempo_vuelo, grid.point), on=.( min_dist<distancia, max_dist>distancia)])
+```
+
+```{r, echo=FALSE, results='hide'}
+p_24 <- head(join.dt <- rect.dt[vuelos, .(   distancia, tiempo_vuelo, grid.point), on=.(min_dist<distancia, max_dist>distancia)])
+```
+
+```{r, echo=FALSE, results='markup'}
+p_24 <- print(p_24[1:2,])
+```
+
+![](images/slide84.jpg){fig-align="center"}
+
+## `Computa por cada fila en la tabla i` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Piensa en términos básicos de unidades: filas, columnas, grupos, 
+
+   
+
+-   La sintaxis de data.table provee un lugar único para cada uno de ellos.
+
+![](images/slide85.jpg)
+
+## `Resumir uniendo via by=.EACHI` {.smaller transition="Slide" background="#E5E9E9"}
+
+```{r}
+vuelos[tres_dias, .(
+  mean_aire_time=mean(tiempo_vuelo),
+  num_vuelos=.N
+  ), by=.EACHI, on=.(mes,dia)]
+```
+
+-   `DT[ i, j, by=.EACHI, on]` significa que por cada fila en i, miramos las filas en DT la cual coinciden usando en columnas, y computar/retornando j.
+
+-   No es lo mismo que `by=`(mes,día) la cual hace el cómputo por cada combinación única de mes y día (mucho menos eficiente si solo quisiéramos el resultado para unas pocas combinaciones)
+
+## `Remodelación de datos: ancho a largo (melt)` {.smaller transition="Slide" background="#E5E9E9"}
+
+![](images/slide87.jpg)
+
+Similar a stats::reshape(dirección="long"), tidyr::pivot_longer()
+
+## `melt: remodelo de datos de ancho a largo` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   ¿ Cómo hacer el gráfico de abajo con datos de flores?
+-   La tabla de datos flores tiene columnas Largo.Sepalo, Ancho.Sepalo, Largo.Petalo, Ancho.Petalo, Especie.
+-   Necesitaríamos `facet_grid(part ~ dim) + geom_histogram(aes(cm, fill=Especie))`,
+-   Donde la columna dim tiene valores Largo o Ancho, parte de los valores son Petalo o Sepalo
+
+![](images/slide88.jpg){fig-align="center" width="900"}
+
+::: footer
+ejemplos de fusión adaptados de: Hocking TD. Datos de ancho a alto remodelar usando expresiones regulares y el nc paquete. R Journal (2021), doi:10.32614/RJ-2021-029
+:::
+
+## `melt:remodelo de ancho a largo de los datos` {.smaller transition="Slide" background="#E5E9E9"}
+
+**melt(DT, id.vars=c("Especie","flores"))**
+
+![](images/figure-1-iris-dt-single-versionespañol.png)
+
+::: footer
+Ejemplos de fusión adaptados de: Hocking TD. Datos de ancho a alto remodelar usando expresiones regulares y el nc paquete. R Journal (2021), doi:10.32614/RJ-2021-029
+:::
+
+## `melt:remodelo de ancho a largo de los datos` {.smaller transition="Slide" background="#E5E9E9"}
+**melt(DT,measure.vars=c("Largo.Sepalo","Ancho.Sepalo","Largo.Petalo","Ancho.Petalo"))**
+
+![](images/figure-1-iris-dt-single-versionespañol.png)
+
+
+## `melt:remodelo de ancho a largo de los datos` {.smaller transition="Slide" background="#E5E9E9"}
+`melt(DT, measure.vars=patterns(".*[.].*"))`
+
+![](images/figure-1-iris-dt-single-versionespañol.png){out-width="65%"} 
+
+
+## `melt:remodelado ancho a largo de los datos` {.smaller transition="Slide" background="#E5E9E9"}
+
+![](images/slide92.jpg)
+
+-   Ejercicio: `melt` las columnas atraso_llegada y atraso_salida de los datos de vuelos,especificando las medidas como `measure.vars`
+-   Adicionalmente especifica `id.vars` que limita con las columnas y hace copia de la salida (*output)*.
+
+::: footer
+Ejemplos de fusión adaptados de: Hocking TD. Datos de ancho a alto remodelar usando expresiones regulares y el nc paquete. ![Diario R](https://journal.r-project.org/archive/2021/RJ-2021-029/index.html) (2021), doi:10.32614/RJ-2021-029
+:::
+
+## `melt: measure() nuevo GitHub` { .smaller transition="Slide" background="#E5E9E9"}
+`melt(DT,measure.vars=measure(part,dim,pattern="(.*)[.](.*)"))`             Captura groups()en patrones usando para definir las columnas variables de salidas.
+![](images/figure-1-iris-dt-single-2value-vespañol.png){out-width="40%"}
+
+## `melt: measure()nuevo GitHub` { .smaller transition="Slide" background="#E5E9E9"}
+`melt(DT,measure.vars=measure(part,dim,sep=".")`
+     Usa columnas de entrada en la mayoría de los grupos después de dividir (aqui son 2)
+![](images/figure-1-iris-dt-single-2value-vespañol.png){out-width="40%"}
+
+## `melt con measure(),nuevo en GitHub` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Ejercicio: hace un gráfico con los datos de flores.
+-   Primero convierte flores en un data.table, luego reacomoda la forma usando `melt(DT, measure=measure(-----------), value.name="cm")`
+-   library(ggplot2); ggplot() + facet_grid(part \~ dim) + geom_histogram(aes(cm, fill=Especie), data=output_of_melt)
+
+![](images/slide88.jpg)
+
+## `melt con measure(), nuevo en GitHub` {.smaller transition="Slide" background="#E5E9E9"}
+
+![](images/sliide99.jpg) ![](images/figura-1-iris-dt-multiple-part-vespañol.png) 
+
+::: footer
+Ejemplos de fusión adaptados de: Hocking TD. Datos de ancho a alto remodelar usando expresiones regulares y el nc paquete. R Journal (2021), doi:10.32614/RJ-2021-029
+:::
+
+## `melt con measure(), nuevo en GitHub` {.smaller transition="Slide" background="#E5E9E9"}
+
+![](images/sliide98.jpg)
+
+![](images/figura-1-dt-multiple-dim-vespañol.png){width="2556"}
+
+::: footer
+ejemplos de fusión adaptados de: Hocking TD. Datos de ancho a alto remodelar usando expresiones regulares y el nc paquete. ![R Journal](https://journal.r-project.org/archive/2021/RJ-2021-029/index.html) (2021), doi:10.32614/RJ-2021-029
+:::
+
+## `melt con measure(), nueva en GitHub` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Ejercicio: para mostrar que Sepalo es más larga que Petalo, hace un gráfico con los datos flores. Primero convertí flores en data.table.
+
+-   Luego usa melt con measure() para reajustar.
+
+-   library(ggplot2); ggplot() + facet_grid(.\~dim) + geom_point(aes( Petalo, Sepalo, color=Especie), data=output_of_melt)+ geom_abline( slope=1, intercept=0)
+
+![](images/slide999.jpg)
+
+ejemplos de fusión adaptados de: Hocking TD. Datos de ancho a alto remodelar usando expresiones regulares y el nc paquete. ![R Journal](https://journal.r-project.org/archive/2021/RJ-2021-029/index.html){alt="R Journal"} (2021), doi:10.32614/RJ-2021-029
+
+## `melt ejercicios para los datos de vuelos` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   Ejercicio: hace un gráfico abajo con los datos de vuelos.
+
+-   Usa melt con ambos patterns() o measure() para readaptar la forma.
+
+-   ggplot() + geom_histogram(aes(demora_minutos, fill=variable), data=output_of_melt)
+
+  ![](images/slide99.jpg)
+
+## `Reajustando datos: larga forma (dcast)` {.smaller transition="Slide" background="#E5E9E9"}
+
+![](images/slide100.jpg) similar a stats::reshape(direction="wide"), tidyr::pivot_wider()
+
+## `dcast:ajuste de largas formas` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   `dcast` puede obtener la versión original del datos de flores volviendo de la versión grande.
+
+```{r}
+flores.dt=data.table(flores)[, flores := .I] # es decir número de fila en data.table
+```
+
+```{r}
+flores.largo=melt(flores.dt,measure=measure(part,dim,sep="."))
+head(flores.largo)
+```
+
+```{r}
+# La formula indica donde esta puesto los diferentes valores de la variable: rows #~ cols
+
+flores.ancho=dcast(flores.largo, flores ~ part + dim, sep=".")
+head(flores.ancho)
+```
+
+## `dcast:ajuste de largas formas` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   dcast puede computarse a resumenes/funciones agregadas
+
+```{r}
+flores.largo=melt(flores.dt,measure=measure(part,dim,sep="."),value.name="cm")
+flores.largo
+```
+
+```{r}
+dcast(flores.largo, Especie ~ dim, fun.aggregate=mean, value.var="cm")
+```
+
+## `dcast:ajustes de largas formas` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   dcast puede computar muchos resumenes/funciones agregadas
+
+```{r}
+flores.largo=melt(flores.dt,measure=measure(part,dim,sep="."),value.name="cm")
+flores.largo
+
+dcast(flores.largo, Especie ~ dim, fun.aggregate=list(min, mean, max)) #value.var="cm")
+```
+
+## `dcast: reajuste de largas formas` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   dcast puede computar muchos valores de columnas.
+
+```{r}
+flores.largo=melt(flores.dt,measure=measure(part,value.name,sep="."))
+flores.largo
+```
+
+```{r}
+dcast(flores.largo, Especie + part ~ ., fun.aggregate=list(min, max), value.var=c("Sepalo", "Petalo"))
+```
+
+## `Ejercicios` {.smaller transition="Slide" background="#E5E9E9"}
+
+|     | destino | EWR | JFK | LGA |
+|-----|---------|-----|-----|-----|
+| 1   | ABQ     | 0   | 278 | 0   |
+| 2   | ACK     | 0   | 277 | 0   |
+| 3   | AGS     | 0   | 0   | 0   |
+| 4   | ALB     | 169 | 0   | 0   |
+| 5   | ANC     | 13  | 0   | 0   |
+
+-   Hace una table como la de arriba, con una columna por cada origen, y una fila por cada destino(cuanta las entradas de los vuelos). Ayuda: usa destino\~origen para crear un destino diferente en cada fila, y un diferente origen en cada columna
+-   Especifica value.var=c("atraso_salida","atraso_llegada") con fun.aggregate=mean para comparar el promedio de retrados. Usa esta información para elegir el mejor aeropuerto por cada destino.
+
+## `Importa data.table en tu paquete` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   data.table actualmente es importada para 1400+ paquetes en CRAN. -"Imports:data.table" en la descripción.
+
+-   "import(data.table)" en NAMESPACE.
+
+-   .\<- j_variable \<- NULL en la primer linea en la función de R para abordarCRAN. NOTA acerca de una función/variable no visible.
+
+-   data.table::setDTthreads(2) en ejemplos/testeos para abordar CRAN NOTA: poco tiempo necesita (por defecto data.table usa 1/2 de todo el CPUs)
+
+## `NOTA 1 CRAN` {.smaller transition="Slide" background="#E5E9E9"}
+
+\-`<-variable<-NULL` en la primer linea de la función de R para abordar\
+CRAN NOTA: acerca de funciones/variable no visible.
+
+```{r}
+mi_funcion <- function(DT) DT[, .(m=mean(x)) , by=y]
+```
+
+\*\* Chequea el código de R por posibles problemas... algunas notas para que consideres:
+
+mi_funcion: si no está visible como función global por `.`\
+mi_funcion: si no está visible como función global variable`x`\
+mi_funcion: si no está visible como función global variable `y`\
+
+-   Chequea la nota como arriba, usa el código R de aquí abajo:
+
+```{r}
+mi_funcion <- function(DT){
+  x <- y <- . <- NULL
+  DT[, .(m=mean(x)), by=y]
+ }
+
+```
+
+## `NOTA2: CRAN` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   CRAN requiere de paquetes para usar max 2CPUs durante chequeos.
+-   data.table por defecto usa 1/2 de todos los CPUs de la máquina.
+
+![](images/slide109.jpg)\
+- Chequea la NOTA como arriba, usa el código R como en los ejemplos de arriba y testeos:
+
+```{r}
+ data.table::setDTthreads(2)
+```
+
+# 4/4Contribuyendo con data.table {.smaller transition="Slide" background="#2C8484"}
+
+## `Comunidad blog y encuesta` {.smaller transition="Slide" background="##E5E9E9"}
+
+::: {.column .smaller width="60%"}
+-   La mascota de data.table es un león marino que ladra "R R R"
+-   La comunidad data.table tiene un nuevo blog, The Raft,
+
+<https://rdatatable-community.github.io/The-Raft/>
+
+Los leones marinos a menudo flotan juntos en la superficie del océano en grupos llamadas(balsas) " rafts." - Centro de Mamíferos Marinos.
+
+-   Por favor completa la encuesta.
+
+<https://tinyurl.com/datatable-survey>
+
+\~10 minutos, cuentanos acerca del uso en data.table! (ayudanos a entender qué priorizar en el futuro)
+:::
+
+::: {.column .smaller width="30%"}
+![](images/slide111.jpg)
+
+![](images/data.tables.png)
+:::
+
+## `Repositorio GitHub` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   data.table tiene un activo *issues/Pull Request(PR)* de extracción (PR) <https://github.com/Rdatatable/data.table/>
+
+-   1000+ open issues, 100+ open PRs
+
+-   si tu tienes algo de tiempo/interés,podríamos usar tu ayuda! -Es fácil contribuir: prueba reproducir en problemas (De mucha ayuda para saber si hay algún problemas que sean reproducible)
+
+-   Es una comunidad muy inclusiva luego de tu ingreso por primera vez en PR, serás invitado a unirte al grupo de github!
+
+-   Ahora se vienen tiempos muy exitantes para involucrarte,ya que actualmente estamos creando un formal Documento escrito que describe la gobernanza descentralizada del proyecto, #5676
+
+## `Premios de Traducción` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   En 2023-2025, la Fundación Nacional de Ciencias ha proporcionado fondos para apoyar y ampliar el ecosistema de usuarios y contribuyentes en torno a data.table
+
+-   20 premios de traducción, de US\$ 500 cada uno, para realizar documentación y mensajes más accesibles, ideas:
+
+-   Traducir errores/advertencias/mensajes (el paquete potools puede ayudar)
+
+-   Traducir las viñetas más importantes (introducción, importación, remodelación)
+
+-   Traducir otra documentación (hojas de referencia, diapositivas, etc.)
+
+-   Prioridad: portugués, español, chino, francés, ruso, árabe, hindi
+
+    -   Llamado para propuestas: https://rdatatable-community.github.io/The-Raft/
+
+## `Premios en Viajes` {.smaller transition="Slide" background="#E5E9E9"}
+
+-   En 2023-2025, la Fundación Nacional de Ciencias ha proporcionado fondos para apoyar y ampliar el ecosistema de usuarios y contribuyentes en torno a data.table
+-   Ocho premios de viaje, 2700 dólares cada uno.
+-   Los candidatos deben dar una charla sobre data.table en una conferencia con una audiencia relevante (posibles usuarios o contribuyentes de data.table)
+-   Convocatoria de propuestas próximamente <https://rdatatable-community.github.io/The-Raft/>
+
+## `Resumen de data.table` {.smaller transition="Slide" background="#E5E9E9"}
+
+\
+\
+
+-   Sintaxis concisa y consistente.
+
+-   Rápida , eficiente en memoria.
+
+-   No tiene dependencias ( es fácil de instalar)
+
+-   No hay quiebres en los cambios ( es fácil de actualizar -update-)
+
+-   Inclusive el usuario/desarrollador de la comunidad tiene oportunidades de contribuir:
+
+-   Premios en traducción, US\$500 cada uno.
+
+-   Premios en viajes, US\$2700 cada uno.
+
+## `GRACIAS. ¿PREGUNTAS?` {transition="Slide" background="#E5E9E9"}
+
+\
+`Mara Destéfanis`\
+maragdestefanis\@gmail.com\
+\
+\
+
+::: {.column width="10%"}
+![](images/National%20Science%20Foundation.jpg){width="100"}
+:::
+
+::: {.column width="70%"}
+Fundado por el programa NSF POSE, proyecto #2303612. diapositivas adaptadas de Toby Dylan Hocking, Arun Srinivasan, y datatable-viñeta de introducción - gracias!
+:::
