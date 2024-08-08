@@ -2,7 +2,9 @@ Source files for LatinR data.table tutorial slides
 
 ** English
 
-[[https://docs.google.com/presentation/d/1ypW1LUMmcrUTMF6B9h9s8qbvW5BSbN1IW6CEgqX01Co/edit?usp=sharing][Google slides by Toby Dylan Hocking]].
+[[https://docs.google.com/presentation/d/1ypW1LUMmcrUTMF6B9h9s8qbvW5BSbN1IW6CEgqX01Co/edit?usp=sharing][Original google slides]],
+[[https://docs.google.com/presentation/d/1mHTFR6Eg7OdKi6yJcAvMk5_B8hjtMmsczs8Ewxt2xT8/edit#slide=id.p1][revised slides Aug 2024]],
+by Toby Dylan Hocking.
 
 Source code for figures:
 
