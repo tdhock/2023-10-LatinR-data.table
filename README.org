@@ -1,5 +1,17 @@
 Source files for LatinR data.table tutorial slides
 
+Title: Using and contributing to the data.table package for efficient big data analysis
+
+Link: http://r-datatable.com
+
+Abstract: data.table is one of the most efficient open-source
+in-memory data manipulation packages available today. First released
+to CRAN by Matt Dowle in 2006, it continues to grow in popularity, and
+now over 1500 other CRAN packages depend on data.table. 
+This talk will start with data reading from CSV, discuss basic and
+advanced data manipulation topics, and finally will end with a
+discussion about how you can contribute to data.table.
+
 ** English
 
 [[https://docs.google.com/presentation/d/1ypW1LUMmcrUTMF6B9h9s8qbvW5BSbN1IW6CEgqX01Co/edit?usp=sharing][Original google slides Oct 2023]],
