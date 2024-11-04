@@ -1,4 +1,4 @@
-Source files for LatinR data.table tutorial slides
+** Source files for LatinR data.table tutorial slides
 
 Title: Using and contributing to the data.table package for efficient big data analysis
 
