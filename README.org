@@ -2,7 +2,9 @@
 
 Title: Using and contributing to the data.table package for efficient big data analysis
 
-Link: http://r-datatable.com
+Package documentation: http://r-datatable.com
+
+Links to tutorial source code and slides: https://github.com/tdhock/2023-10-LatinR-data.table
 
 Abstract: data.table is one of the most efficient open-source
 in-memory data manipulation packages available today. First released
