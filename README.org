@@ -35,26 +35,27 @@ figures, adapted from [[https://github.com/tdhock/nc-article/blob/master/figure-
 
 Titre : data.table pour la traitement efficace des grands jeux de données
 
-Documentation : http://r-datatable.com
+Page web en anglais : http://r-datatable.com
+
+Vignette d'introduction en français : https://rdatatable.gitlab.io/data.table/articles/fr/datatable-intro.html
 
 Code source du tutoriel : https://github.com/tdhock/2023-10-LatinR-data.table
 
 Résumé : data.table est un package R qui permet la traitement efficace des grands jeux de données. 
-Il inclus des fonctions pour lecture et écriture des fichiers CSV, aggrégation, restructuration, jointure, etc.
+Il inclut des fonctions pour lecture et écriture des fichiers CSV, agrégation, restructuration, jointure, etc.
 Par rapport aux autres logiciels avec ces fonctions, 
 l'utilisation de data.table peut être 10x plus efficace en temps de calcul, et en utilisation de mémoire.
+Il est aussi très facile à installer (il ne dépend pas d'autres packages), et à mettre à jour (les nouvelles vérsions de data.table sont compatibles avec les anciennes).
 Sur CRAN depuis 2006, il est très utilisé, avec plus de 1500 autres packages qui en dépend.
-Ce tutoriel va discuter : son efficacité rélatif aux autres packages (tidyverse, pandas, etc),
+Depuis 2024, il y a même des traductions en français, pour les messages d'erreur, ainsi que les vignettes.
+Ce tutoriel va discuter : son efficacité relative aux autres packages (tidyverse, pandas, etc),
 l'utilisation du package (fonctions de base et avancées),
 une discussion de comment écrire un package qui dépend de data.table,
 ainsi que quelques remarques sur la communauté de développeurs de data.table, 
 qui est très ouverte aux contributions du public. 
 
 Installation : il va y avoir quelques exercises pour les participants.
-SVP inste
-qui devraient
-
-Installation instructions for participants: any version of R should work. I typically use the most recent release version. Make sure you can =install.packages("data.table")= and that should be all!
+SVP installer R vérsion 3.3.0 ou plus, et ensuite utiliser la commande =install.packages("data.table")=.
 
 ** Español
 Fuentes código y gráficos:
