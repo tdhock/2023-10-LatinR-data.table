@@ -1,4 +1,6 @@
-** Source files for LatinR data.table tutorial slides
+* Source files for data.table tutorial slides
+
+** English
 
 Title: Using and contributing to the data.table package for efficient big data analysis
 
@@ -16,8 +18,6 @@ discussion about how you can contribute to data.table.
 
 Installation instructions for participants: any version of R should work. I typically use the most recent release version. Make sure you can =install.packages("data.table")= and that should be all!
 
-** English
-
 [[https://docs.google.com/presentation/d/1ypW1LUMmcrUTMF6B9h9s8qbvW5BSbN1IW6CEgqX01Co/edit?usp=sharing][Original google slides Oct 2023]],
 [[https://docs.google.com/presentation/d/1mHTFR6Eg7OdKi6yJcAvMk5_B8hjtMmsczs8Ewxt2xT8/edit#slide=id.p1][revised slides Aug 2024]],
 by Toby Dylan Hocking.
@@ -30,6 +30,31 @@ Source code for figures:
 figures, adapted from [[https://github.com/tdhock/nc-article/blob/master/figure-1-iris.svg][nc article]]. SVG files use Courier and Sans fonts.
 
 [[file:figure-melt-exercises.R]] contains code for melt exercise figures.
+
+** français
+
+Titre : data.table pour la traitement efficace des grands jeux de données
+
+Documentation : http://r-datatable.com
+
+Code source du tutoriel : https://github.com/tdhock/2023-10-LatinR-data.table
+
+Résumé : data.table est un package R qui permet la traitement efficace des grands jeux de données. 
+Il inclus des fonctions pour lecture et écriture des fichiers CSV, aggrégation, restructuration, jointure, etc.
+Par rapport aux autres logiciels avec ces fonctions, 
+l'utilisation de data.table peut être 10x plus efficace en temps de calcul, et en utilisation de mémoire.
+Sur CRAN depuis 2006, il est très utilisé, avec plus de 1500 autres packages qui en dépend.
+Ce tutoriel va discuter : son efficacité rélatif aux autres packages (tidyverse, pandas, etc),
+l'utilisation du package (fonctions de base et avancées),
+une discussion de comment écrire un package qui dépend de data.table,
+ainsi que quelques remarques sur la communauté de développeurs de data.table, 
+qui est très ouverte aux contributions du public. 
+
+Installation : il va y avoir quelques exercises pour les participants.
+SVP inste
+qui devraient
+
+Installation instructions for participants: any version of R should work. I typically use the most recent release version. Make sure you can =install.packages("data.table")= and that should be all!
 
 ** Español
 Fuentes código y gráficos:
