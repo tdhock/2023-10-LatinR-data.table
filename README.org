@@ -16,11 +16,15 @@ This talk will start with data reading from CSV, discuss basic and
 advanced data manipulation topics, and finally will end with a
 discussion about how you can contribute to data.table.
 
-Installation instructions for participants: any version of R should work. I typically use the most recent release version. Make sure you can =install.packages("data.table")= and that should be all!
+Installation instructions for participants: any version of R should
+work. I typically use the most recent release version. Make sure you
+can =install.packages("data.table")= and that should be all!
 
 [[https://docs.google.com/presentation/d/1ypW1LUMmcrUTMF6B9h9s8qbvW5BSbN1IW6CEgqX01Co/edit?usp=sharing][Original google slides Oct 2023]],
 [[https://docs.google.com/presentation/d/1mHTFR6Eg7OdKi6yJcAvMk5_B8hjtMmsczs8Ewxt2xT8/edit#slide=id.p1][revised slides Aug 2024]],
 by Toby Dylan Hocking.
+
+[[https://vimeo.com/1061999204][Video from presentation at Madrid RUG]], 27 Feb 2025.
 
 Source code for figures:
 
