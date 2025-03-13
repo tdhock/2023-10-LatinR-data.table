@@ -21,9 +21,9 @@ work. I typically use the most recent release version. Make sure you
 can =install.packages("data.table")= and that should be all!
 
 Slides by Toby Dylan Hocking:
-* [[https://docs.google.com/presentation/d/1ypW1LUMmcrUTMF6B9h9s8qbvW5BSbN1IW6CEgqX01Co/edit?usp=sharing][Original google slides Oct 2023]],
-* [[https://docs.google.com/presentation/d/1mHTFR6Eg7OdKi6yJcAvMk5_B8hjtMmsczs8Ewxt2xT8/edit#slide=id.p1][revised slides Aug 2024]],
-* [[https://docs.google.com/presentation/d/1ss6kTGgMklN377i_QsTAktiLdiLKFIfFb9gQdFFCE_o][short slides with introduction to LASSO lab and R, Mar 2025]].
+- [[https://docs.google.com/presentation/d/1ypW1LUMmcrUTMF6B9h9s8qbvW5BSbN1IW6CEgqX01Co/edit?usp=sharing][Original google slides Oct 2023]],
+- [[https://docs.google.com/presentation/d/1mHTFR6Eg7OdKi6yJcAvMk5_B8hjtMmsczs8Ewxt2xT8/edit#slide=id.p1][revised slides Aug 2024]],
+- [[https://docs.google.com/presentation/d/1ss6kTGgMklN377i_QsTAktiLdiLKFIfFb9gQdFFCE_o][short slides with introduction to LASSO lab and R, Mar 2025]].
 
 [[https://vimeo.com/1061999204][Video from presentation at Madrid RUG]], 27 Feb 2025.
 
