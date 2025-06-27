@@ -46,7 +46,10 @@ Vignette d'introduction en français : https://rdatatable.gitlab.io/data.table/a
 
 Code source du tutoriel : https://github.com/tdhock/2023-10-LatinR-data.table
 
-Diapos : [[https://docs.google.com/presentation/d/1ebLJxY57OdFm7v_G6feoVFypwBe1PiG6Mf7v7UL6WCw/edit?usp=sharing][google slides en français]]
+Diapos : 
+
+- Tutoriel [[https://docs.google.com/presentation/d/1ebLJxY57OdFm7v_G6feoVFypwBe1PiG6Mf7v7UL6WCw/edit?usp=sharing][google slides en français]]
+- Programmation R efficace en temps et mémoire [[https://docs.google.com/presentation/d/1Jau3OIkvq3KF6w163dwRu2l6urC2NxfdnntC1BPa9F4][google slides]]
 
 Résumé : data.table est un package R qui permet la traitement efficace des grands jeux de données. 
 Il inclut des fonctions pour lecture et écriture des fichiers CSV, agrégation, restructuration, jointure, etc.
