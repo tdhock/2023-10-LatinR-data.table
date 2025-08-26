@@ -6,8 +6,10 @@ learners_dt <- fread("learners.csv.gz")
 names(learners_dt)
 learners_dt[1]
 
-(out.names <- grep("epoch|learner_id|classif", names(learners_dt), value=TRUE))
+(out.names <- grep("epoch|learner_id|[.]classif", names(learners_dt), value=TRUE))
 learners_some <- learners_dt[grepl("log", learner_id) & test.fold==1 & test.subset=="balanced" & train.subsets=="same" & task_id=="MNIST_seed1_prop0.01", out.names, with=FALSE]
+paste(names(learners_some), collapse=" ")
+learners_some[c(1,.N)]
 fwrite(learners_some, "figure-melt-mlr3.csv")
 learners_long <- melt(
   learners_some,
